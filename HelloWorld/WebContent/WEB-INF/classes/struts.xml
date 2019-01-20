@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+   <package name="default" namespace="/" extends="struts-default,json-default">
+
+      <action name="ind">
+            <result >index.jsp</result>
+      </action>
+
+      <action name="hello" 
+            class="com.maasmind.action.HelloWorldAction">
+            <param name="greet">Welcome to Maasmind</param>
+            <result name="success">/HelloWorld.jsp</result>
+            <result name="failure">/failed.jsp</result>
+            <result name="input">/index.jsp</result>
+      </action>
+      
+      <action name="getBookDetails" class="com.rk.action.BookAction" method="getBookList">
+            <param name="greet">Welcome to Maasmind</param>
+            <!-- <result name="success">/BookTable.jsp</result>
+            <result name="failure">/failed.jsp</result>
+            <result name="input">/index.jsp</result> -->
+            <result name ="success" type="json"></result>
+            
+      </action>
+
+   </package>
+</struts>
